@@ -5,7 +5,7 @@
 #include "connexion.h"
 #include <QMainWindow>
 #include"client.h"
-
+#include"carte_fidelite.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -28,5 +28,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     client C ;
+    carte_fidelite CF ;
 };
 #endif // MAINWINDOW_H

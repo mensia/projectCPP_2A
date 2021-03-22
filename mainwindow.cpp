@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 ui->tableau_client->setModel(C.afficher_client());
+ui->tableau_CF->setModel(CF.afficher_CF());
 }
 
 MainWindow::~MainWindow()
