@@ -26,25 +26,29 @@ public:
     void setIDClient (int n );
     void setNbrPnts (int n );
     void setType(int n );
-    void setDateDebut (date n);
+    void setDateModif (date n);
+    void setDateString (QString n);
 
     int getID_CF();
     int getIDClient();
     int getNbrPnts ();
     int getType () ;
-    date getDateDebut ();
+    date getDateModif ();
+    QString getDateString();
 
 
     carte_fidelite();
-    carte_fidelite(int, int, int, int, date);
+    carte_fidelite(int, int, int, int, date, QString );
 
     bool ajouter_CF();
     QSqlQueryModel* afficher_CF();
     bool supprimer_CF(int n );
+    void trouvr_CF (int n );
 
 private :
     int id_CF , id_client, nbr_pnts, type ;
-    date date_debut ;
+    QString date_string ;
+    date date_modif ;
 };
 
 #endif // CARTE_FIDELITE_H

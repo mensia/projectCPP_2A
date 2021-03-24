@@ -25,6 +25,12 @@ private slots:
 
     void on_pushButton_supprimerClient_clicked();
 
+    void on_pushButton_ajouterClient_clicked();
+
+    void on_pushButton_modifierClient_clicked();
+
+    void on_pushButton_modifier_client_clicked();
+
 private:
     Ui::MainWindow *ui;
     client C ;

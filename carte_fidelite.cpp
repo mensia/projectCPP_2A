@@ -6,30 +6,33 @@ id_CF =0 ;
 id_client =0 ;
 nbr_pnts =0;
 type=0;
-date_debut ;
+date_modif ;
+date_string ;
 }
 
 
-carte_fidelite::carte_fidelite(int id_CF, int id_client, int nbr_pnts, int type , date date_debut )
+carte_fidelite::carte_fidelite(int id_CF, int id_client, int nbr_pnts, int type , date date_modif , QString date_string  )
 {
     this->id_CF = id_CF ;
     this->id_client = id_client;
     this->nbr_pnts = nbr_pnts ;
     this->type = type ;
-    this->date_debut = date_debut ;
+    this->date_modif = date_modif ;
 }
 
 void carte_fidelite::setID_CF(int n){id_CF =n ; }
 void carte_fidelite::setIDClient (int n ){id_client =n ; }
 void carte_fidelite::setNbrPnts (int n ){nbr_pnts =n ; }
 void carte_fidelite::setType(int n ){type=n; }
-void carte_fidelite::setDateDebut (date n) {date_debut =n; }
+void carte_fidelite::setDateModif(date n)  {date_modif =n; }
+void carte_fidelite::setDateString(QString n){date_string=n;}
 
 int carte_fidelite::getID_CF(){return id_CF ; }
 int carte_fidelite::getIDClient(){return id_client; }
 int carte_fidelite::getNbrPnts (){return nbr_pnts; }
 int carte_fidelite::getType () {return type; }
-date carte_fidelite::getDateDebut () {return date_debut; }
+date carte_fidelite::getDateModif () {return date_modif; }
+QString carte_fidelite::getDateString(){return date_string; }
 
 bool carte_fidelite::ajouter_CF()
 {
@@ -39,16 +42,16 @@ bool carte_fidelite::ajouter_CF()
     QString nbr_pnts_string = QString::number(nbr_pnts);
     QString type_string = QString::number(type);
     // creation de la date
-    QString date_debut_string_j = QString::number(date_debut.jour);
-    QString date_debut_string_M = QString::number(date_debut.mois);
-    QString date_debut_string_y = QString::number(date_debut.annee);
-    QString date_debut_string_h = QString::number(date_debut.heure);
-    QString date_debut_string_m = QString::number(date_debut.minute);
-    QString date_debut_string_s = QString::number(date_debut.second);
+    QString date_debut_string_j = QString::number(date_modif.jour);
+    QString date_debut_string_M = QString::number(date_modif.mois);
+    QString date_debut_string_y = QString::number(date_modif.annee);
+    QString date_debut_string_h = QString::number(date_modif.heure);
+    QString date_debut_string_m = QString::number(date_modif.minute);
+    QString date_debut_string_s = QString::number(date_modif.second);
     QString separateur1 = "/";
     QString separateur2 = ":";
 
-    QString date_debut_string = date_debut_string_j+ separateur1 + date_debut_string_M + separateur1 + date_debut_string_y + "   " + date_debut_string_h + separateur2 + date_debut_string_m + separateur2 + date_debut_string_s ;
+    QString date_modif_string = date_debut_string_j+ separateur1 + date_debut_string_M + separateur1 + date_debut_string_y + "   " + date_debut_string_h + separateur2 + date_debut_string_m + separateur2 + date_debut_string_s ;
 
 
     query.prepare("INSERT INTO carte_CF (id_CF, id_client, nbr_pnts, type, date_debut ) "
@@ -57,7 +60,7 @@ bool carte_fidelite::ajouter_CF()
     query.bindValue(":id_client", id_client_string);
     query.bindValue(":nbr_pnts", nbr_pnts_string);
     query.bindValue(":type", type_string);
-    query.bindValue(":date_debut", date_debut_string);
+    query.bindValue(":date_debut", date_modif_string);
 
 
     return query.exec();
@@ -78,6 +81,28 @@ QSqlQueryModel* carte_fidelite::afficher_CF()
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("date_debut"));
 
     return model ;
+}
+void  carte_fidelite::trouvr_CF (int n )
+{
+    QSqlQuery query ;
+    query.exec("SELECT * FROM CARTE_CF where ID_CF = " + QString::number(n) );
+
+     while (query.next())
+     {
+         int idCF = query.value(0).toInt();
+         setID_CF(idCF);
+          int idC = query.value(1).toInt();
+          setIDClient(idC);
+           int nbr = query.value(2).toInt();
+           setNbrPnts(nbr);
+            int TY = query.value(3).toInt();
+            setType(TY);
+         QString date_modiff = query.value(4).toString();
+         setDateString(date_modiff) ;
+
+         qDebug() << idCF << idC << nbr << TY << date_modiff ;
+     }
+
 }
 bool carte_fidelite::supprimer_CF(int n )
 {

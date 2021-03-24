@@ -65,7 +65,7 @@ bool client::ajouter_client()
     return query.exec();
 
 }
-QSqlQueryModel* client::afficher_client()
+QSqlQueryModel* client::afficher_clients()
 {
  QSqlQueryModel* model = new QSqlQueryModel();
 
@@ -85,6 +85,55 @@ QSqlQueryModel* client::afficher_client()
 
 
  return model ;
+}
+void client::trouver_client(int n )
+{
+
+ QSqlQuery query;
+ //QString n1 = QString::number(n);
+
+ query.exec("SELECT * FROM client where ID = " + QString::number(n) );
+ //  query.addBindValue(n);
+
+ while (query.next())
+         {
+         QString name = query.value(1).toString();
+         setNom(name);
+         QString surname = query.value(2).toString();
+         setPrenom(surname);
+         QString ad = query.value(3).toString();
+         setAdresse(ad);
+         QString mai = query.value(4).toString();
+         setMail(mai);
+         int salary = query.value(0).toInt();
+         setID(salary);
+         int tel = query.value(5).toInt();
+         setTelephone(tel);
+         int num = query.value(6).toInt();
+         setNum_CB(num);
+         int C = query.value(7).toInt();
+         setCF(C);
+
+         qDebug() << name << surname << ad << mai << salary << tel << num << C ;
+         }
+
+}
+void client::modifier_client ( )
+{
+    QSqlQuery query ;
+
+    QString telephone_string = QString::number(telephone);
+    QString num_CB_string = QString::number(num_CB);
+    query.prepare("UPDATE client set nom = :nom , prenom = :prenom , adresse = :adresse , mail = :mail , telephone = :telephone , num_CB = :num_CB "
+                  " where ID = " + QString::number(id));
+    query.bindValue(":nom", nom);
+    query.bindValue(":prenom", prenom);
+    query.bindValue(":adresse", adresse);
+    query.bindValue(":mail", mail);
+    query.bindValue(":telephone", telephone_string);
+    query.bindValue(":num_CB", num_CB_string);
+
+
 }
 bool client::supprimer_client(int n )
 {

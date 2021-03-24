@@ -31,8 +31,10 @@ public:
     int getCF();
 
 bool ajouter_client();
-QSqlQueryModel* afficher_client();
+QSqlQueryModel* afficher_clients();
 bool supprimer_client(int );
+void trouver_client(int n );
+void modifier_client ( );
 // int generation_id();
 
 private:
