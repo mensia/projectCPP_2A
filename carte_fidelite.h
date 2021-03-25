@@ -44,6 +44,7 @@ public:
     QSqlQueryModel* afficher_CF();
     bool supprimer_CF(int n );
     void trouvr_CF (int n );
+    void modifier_CF();
 
 private :
     int id_CF , id_client, nbr_pnts, type ;

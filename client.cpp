@@ -120,19 +120,19 @@ void client::trouver_client(int n )
 }
 void client::modifier_client ( )
 {
-    QSqlQuery query ;
+      QSqlQuery query ;
 
     QString telephone_string = QString::number(telephone);
-    QString num_CB_string = QString::number(num_CB);
-    query.prepare("UPDATE client set nom = :nom , prenom = :prenom , adresse = :adresse , mail = :mail , telephone = :telephone , num_CB = :num_CB "
-                  " where ID = " + QString::number(id));
-    query.bindValue(":nom", nom);
-    query.bindValue(":prenom", prenom);
-    query.bindValue(":adresse", adresse);
-    query.bindValue(":mail", mail);
-    query.bindValue(":telephone", telephone_string);
-    query.bindValue(":num_CB", num_CB_string);
-
+        QString num_CB_string = QString::number(num_CB);
+        query.prepare("UPDATE client set nom = :nom , prenom = :prenom , adresse = :adresse , mail = :mail , telephone = :telephone , num_CB = :num_CB "
+                      " where ID = " + QString::number(id));
+        query.bindValue(":nom", nom);
+        query.bindValue(":prenom", prenom);
+        query.bindValue(":adresse", adresse);
+        query.bindValue(":mail", mail);
+        query.bindValue(":telephone", telephone_string);
+        query.bindValue(":num_CB", num_CB_string);
+    query.exec();
 
 }
 bool client::supprimer_client(int n )

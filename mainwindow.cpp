@@ -150,22 +150,20 @@ void MainWindow::on_pushButton_modifier_client_clicked()
 {
     client c ; carte_fidelite CF ;
 
-    c.setID((int) ui->lineEdit_id_a_modifier->text().toInt());
-    c.setTelephone((int) ui->lineEdit_telephone_a_modifier->text().toInt());
-    c.setCF((int) ui->lineEdit_id_CF_a_modifier->text().toInt());
-    c.setNum_CB((int) ui->lineEdit_num_CB_a_modifier->text().toInt());
-    c.setNom(ui->lineEdit_nom_a_modifier->text());
-    c.setPrenom(ui->lineEdit__prenom_a_modifier->text());
-    c.setAdresse(ui->lineEdit_adresse_a_modifier->text());
-    c.setMail(ui->lineEdit_mail_a_modofier->text());
+        c.setID(ui->lineEdit_id_a_modifier->text().toInt());
+        c.setTelephone( ui->lineEdit_telephone_a_modifier->text().toInt());
+        c.setCF( ui->lineEdit_id_CF_a_modifier->text().toInt());
+        c.setNum_CB( ui->lineEdit_num_CB_a_modifier->text().toInt());
+        c.setNom(ui->lineEdit_nom_a_modifier->text());
+        c.setPrenom(ui->lineEdit__prenom_a_modifier->text());
+        c.setAdresse(ui->lineEdit_adresse_a_modifier->text());
+        c.setMail(ui->lineEdit_mail_a_modofier->text());
+        CF.setID_CF(c.getID());
+        CF.setType( ui->spinBox_type_a_modifier->value() ) ;
+        CF.setNbrPnts(ui->spinBox_nbr_pnts_a_modifier->value());
 
-    c.modifier_client();
-
-
-
-
-
-
-
-
+        CF.modifier_CF();
+        c.modifier_client();
+        ui->tableau_client->setModel(c.afficher_clients());
+        ui->tableau_CF->setModel(CF.afficher_CF());
 }

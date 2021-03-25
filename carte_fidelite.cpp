@@ -51,7 +51,7 @@ bool carte_fidelite::ajouter_CF()
     QString separateur1 = "/";
     QString separateur2 = ":";
 
-    QString date_modif_string = date_debut_string_j+ separateur1 + date_debut_string_M + separateur1 + date_debut_string_y + "   " + date_debut_string_h + separateur2 + date_debut_string_m + separateur2 + date_debut_string_s ;
+    date_string = date_debut_string_j+ separateur1 + date_debut_string_M + separateur1 + date_debut_string_y + "   " + date_debut_string_h + separateur2 + date_debut_string_m + separateur2 + date_debut_string_s ;
 
 
     query.prepare("INSERT INTO carte_CF (id_CF, id_client, nbr_pnts, type, date_debut ) "
@@ -60,7 +60,7 @@ bool carte_fidelite::ajouter_CF()
     query.bindValue(":id_client", id_client_string);
     query.bindValue(":nbr_pnts", nbr_pnts_string);
     query.bindValue(":type", type_string);
-    query.bindValue(":date_debut", date_modif_string);
+    query.bindValue(":date_debut", date_string);
 
 
     return query.exec();
@@ -102,6 +102,44 @@ void  carte_fidelite::trouvr_CF (int n )
 
          qDebug() << idCF << idC << nbr << TY << date_modiff ;
      }
+
+}
+void carte_fidelite::modifier_CF()
+{
+    QSqlQuery query ;
+
+    time_t actuel = time(0);
+    tm *ltm = localtime((&actuel)) ;
+    date_modif.jour =  ltm->tm_mday ;
+    date_modif.mois = ltm->tm_mon ;
+    date_modif.annee = ltm->tm_year ;
+    date_modif.heure = ltm->tm_hour ;
+    date_modif.minute = ltm->tm_min ;
+    date_modif.second = ltm->tm_sec ;
+
+    // creation de la date
+    QString date_debut_string_j = QString::number(date_modif.jour);
+    QString date_debut_string_M = QString::number(date_modif.mois);
+    QString date_debut_string_y = QString::number(date_modif.annee);
+    QString date_debut_string_h = QString::number(date_modif.heure);
+    QString date_debut_string_m = QString::number(date_modif.minute);
+    QString date_debut_string_s = QString::number(date_modif.second);
+    QString separateur1 = "/";
+    QString separateur2 = ":";
+
+    date_string = date_debut_string_j+ separateur1 + date_debut_string_M + separateur1 + date_debut_string_y + "   " + date_debut_string_h + separateur2 + date_debut_string_m + separateur2 + date_debut_string_s ;
+
+
+    QString typ = QString::number(type);
+    QString nb = QString::number(nbr_pnts);
+
+    query.prepare("UPDATE CARTE_CF set NBR_PNTS = :nbr_pnts , TYPE = :type , DATE_DEBUT = :date "
+                  "where ID_CF = " + QString::number(id_CF));
+    query.bindValue(":nbr_pnts", nb);
+    query.bindValue(":type", typ);
+    query.bindValue(":date",date_string);
+    query.exec();
+
 
 }
 bool carte_fidelite::supprimer_CF(int n )
