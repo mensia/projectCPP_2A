@@ -4,8 +4,8 @@
 #include <QApplication>
 #include "connexion.h"
 #include <QMainWindow>
-#include"client.h"
-#include"carte_fidelite.h"
+#include "client.h"
+#include "carte_fidelite.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

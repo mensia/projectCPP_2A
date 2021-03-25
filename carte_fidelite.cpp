@@ -6,8 +6,13 @@ id_CF =0 ;
 id_client =0 ;
 nbr_pnts =0;
 type=0;
-date_modif ;
-date_string ;
+date_modif.jour = 0  ;
+date_modif.mois = 0 ;
+date_modif.annee = 0 ;
+date_modif.second = 0 ;
+date_modif.minute = 0 ;
+date_modif.second = 0 ;
+date_string = "" ;
 }
 
 
@@ -144,12 +149,17 @@ void carte_fidelite::modifier_CF()
 }
 bool carte_fidelite::supprimer_CF(int n )
 {
-
-    QSqlQuery query;
+     QSqlQuery query;
+    carte_fidelite x ;
+    x.trouvr_CF(n);
+    if (x.getID_CF()== 0 && x.getNbrPnts()== 0 )  qWarning("id inexistant ");
+    else
+    {
 
     query.prepare("Delete FROM carte_CF where id_client = :id ");
     query.bindValue(":id", n);
 
-    return  query.exec();
-
+    }
+     return  query.exec();
 }
+

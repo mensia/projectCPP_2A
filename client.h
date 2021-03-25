@@ -1,11 +1,9 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include<QString>
-#include<QSqlQuery>
-#include<QDebug>
-#include<QSqlQueryModel>
-#include<QObject>
+#include "INCLUD.h"
+
+
 class client
 {
 public:
@@ -35,7 +33,7 @@ QSqlQueryModel* afficher_clients();
 bool supprimer_client(int );
 void trouver_client(int n );
 void modifier_client ( );
-// int generation_id();
+int generation_id();
 
 private:
     int id , telephone, num_CB, CF  ;

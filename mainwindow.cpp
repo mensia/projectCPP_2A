@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "client.h"
-#include "carte_fidelite.h"
-#include <ctime>
+#include "INCLUD.h"
+
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -11,23 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 ui->tableau_client->setModel(C.afficher_clients());
 ui->tableau_CF->setModel(CF.afficher_CF());
-carte_fidelite CF ;
-client c ;
- c.trouver_client(7445);
- CF.trouvr_CF(3522);
 
-
-
-
-QString m = QString::number(c.getID()) ;
-ui->ID->setText( QString::number(CF.getID_CF()) );
-ui->nom->setText(CF.getDateString());
-ui->prenom->setText(c.getPrenom());
-ui->adresse->setText(c.getAdresse());
-ui->mail->setText(c.getMail());
-ui->telephone->setText( QString::number(CF.getIDClient()));
-ui->CB->setText( QString::number(CF.getNbrPnts()));
-ui->CF->setText( QString::number(CF.getType()));
 
 }
 
@@ -43,7 +27,9 @@ void MainWindow::on_pushButton_ajouter_client_clicked()
     time_t actuel = time(0);
     tm *ltm = localtime((&actuel)) ;
 
-    int id = rand() % 8888 + 1111 ; // doit etre generer automatiquement
+   // int id = rand() % 8888 + 1111 ;
+    client x ;
+    int id = x.generation_id();
     int telephone = (int) ui->lineEdit_telephoneclient->text().toInt() ;
     int num_CB = ui->lineEdit_numCB->text().toInt();
     int id_CF =  id ;
@@ -127,9 +113,22 @@ void MainWindow::on_pushButton_modifierClient_clicked()
     // aller au tab modifier
     client c ;     carte_fidelite CF ;
     c.setID(ui->lineEdit_ID_client_supp_mod->text().toInt());
-    CF.setID_CF(ui->lineEdit_ID_client_supp_mod->text().toInt());
+    CF.setID_CF(c.getID());
     c.trouver_client(c.getID());
     CF.trouvr_CF(c.getID());
+/*
+    printf ("id ", c.getID() , "/" ,  "/" , c.getTelephone());
+
+    ui->ID->setText(" QString::number(CF.getID_CF()");
+    ui->nom->setText(CF.getDateString());
+    ui->telephone->setText( "QString::number(CF.getIDClient())");
+    ui->CB->setText( QString::number(CF.getNbrPnts()));
+    ui->CF->setText( QString::number(CF.getType()));
+    ui->prenom->setText("c.getPrenom()");
+    ui->adresse->setText(c.getAdresse());
+    ui->mail->setText(c.getMail());
+
+*/
 
     ui->lineEdit_id_a_modifier->setText( QString::number(c.getID()));
     ui->lineEdit_nom_a_modifier->setText(c.getNom());

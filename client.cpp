@@ -138,12 +138,45 @@ void client::modifier_client ( )
 bool client::supprimer_client(int n )
 {
     QSqlQuery query;
-
+    client x ;
+    x.trouver_client(n);
+    if (x.getID()==0 && x.getNum_CB()==0) qWarning("id inexistant ");
+    else
+    {
     query.prepare("Delete FROM client where id = :id ");
     query.bindValue(":id", n);
+    }
     return query.exec();
-
-
-
 }
+int client::generation_id()
+{
+    int a = rand() % 8888 + 1111 , b ;
+
+    id = a ;
+        QSqlQuery query ;
+        query.exec("SELECT * FROM client");
+
+         while (query.next())
+         {
+             b = query.value(0).toInt() ;
+              qDebug() << b ;
+              if (id == b ) id ++ ;
+         }
+         return id ;
+}
+         /*
+          bool test ;
+        QSqlQuery count ;
+       count.exec( "select count(*) from client ") ;
+       if (!count.exec()) qWarning("Incorrect query");
+        int l = count.value(0).toInt() ;
+        int tab[l];
+
+           do {
+        for (int i = 0 ; i=l ; i++ )
+            if (id== tab[i])
+                test = false ;
+    } while (test = false) ;
+    */
+
 

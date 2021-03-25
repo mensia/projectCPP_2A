@@ -24,6 +24,7 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    INCLUD.h \
     carte_fidelite.h \
     client.h \
     connexion.h \

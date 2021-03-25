@@ -1,11 +1,7 @@
 #ifndef CARTE_FIDELITE_H
 #define CARTE_FIDELITE_H
 
-#include<QString>
-#include<QSqlQuery>
-#include<QDebug>
-#include<QSqlQueryModel>
-#include<QObject>
+#include "INCLUD.h"
 
 class date
 {
