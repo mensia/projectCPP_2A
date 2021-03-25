@@ -166,3 +166,34 @@ void MainWindow::on_pushButton_modifier_client_clicked()
         ui->tableau_client->setModel(c.afficher_clients());
         ui->tableau_CF->setModel(CF.afficher_CF());
 }
+
+void MainWindow::on_checkBox_clicked()
+{
+    client c ;
+    ui->tableau_client->setModel(c.trier_client("NOM"));
+
+}
+
+void MainWindow::on_checkBox_2_clicked()
+{
+    client c ;
+    ui->tableau_client->setModel(c.trier_client("PRENOM"));
+}
+
+void MainWindow::on_checkBox_4_clicked()
+{
+    carte_fidelite CF ;
+    ui->tableau_CF->setModel( CF.trier_CF("NBR_PNTS"));
+}
+
+void MainWindow::on_checkBox_6_clicked()
+{
+    carte_fidelite CF ;
+    ui->tableau_CF->setModel( CF.trier_CF("TYPE"));
+}
+
+void MainWindow::on_checkBox_3_clicked()
+{
+    client c ;
+    ui->tableau_client->setModel(c.trier_client("ASRESSE"));
+}

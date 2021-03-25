@@ -162,4 +162,19 @@ bool carte_fidelite::supprimer_CF(int n )
     }
      return  query.exec();
 }
+QSqlQueryModel* carte_fidelite::trier_CF(QString n )
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
 
+
+    model->setQuery("SELECT * FROM carte_CF ORDER BY "+ n );
+
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id_CF"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("id_client"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("nbr_pnts"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("type"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("date_debut"));
+
+    return model ;
+}

@@ -469,7 +469,7 @@
      <number>-1</number>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -1752,11 +1752,63 @@ p, li { white-space: pre-wrap; }
      <widget class="QTableView" name="tableau_CF">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>30</y>
+        <x>50</x>
+        <y>260</y>
         <width>621</width>
-        <height>441</height>
+        <height>271</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_4">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>70</y>
+        <width>121</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>nombre de points </string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_5">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>100</y>
+        <width>70</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>date </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>140</x>
+        <y>50</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trier par : </string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_6">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>130</y>
+        <width>70</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>type </string>
       </property>
      </widget>
     </widget>
@@ -1767,11 +1819,63 @@ p, li { white-space: pre-wrap; }
      <widget class="QTableView" name="tableau_client">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
-        <width>671</width>
-        <height>441</height>
+        <x>10</x>
+        <y>180</y>
+        <width>791</width>
+        <height>351</height>
        </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>56</x>
+        <y>50</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>trié par : </string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>50</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>nom </string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>80</y>
+        <width>70</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>prenom</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>110</y>
+        <width>111</width>
+        <height>18</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>adresse</string>
       </property>
      </widget>
     </widget>
@@ -2017,8 +2121,8 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>641</width>
-          <height>235</height>
+          <width>100</width>
+          <height>30</height>
          </rect>
         </property>
         <attribute name="label">

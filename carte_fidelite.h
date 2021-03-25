@@ -41,7 +41,7 @@ public:
     bool supprimer_CF(int n );
     void trouvr_CF (int n );
     void modifier_CF();
-
+    QSqlQueryModel* trier_CF(QString n );
 private :
     int id_CF , id_client, nbr_pnts, type ;
     QString date_string ;
