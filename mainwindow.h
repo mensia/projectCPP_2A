@@ -25,7 +25,7 @@ private slots:
 
     void on_pushButton_supprimerClient_clicked();
 
-    void on_pushButton_ajouterClient_clicked();
+   //  void on_pushButton_ajouterClient_clicked();
 
     void on_pushButton_modifierClient_clicked();
 
