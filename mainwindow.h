@@ -31,17 +31,19 @@ private slots:
 
     void on_pushButton_modifier_client_clicked();
 
-    void on_checkBox_stateChanged(int arg1);
 
-    void on_checkBox_clicked();
 
-    void on_checkBox_2_clicked();
+    void on_radioButton_nomClient_clicked();
 
-    void on_checkBox_4_clicked();
+    void on_radioButton_prenomClient_clicked();
 
-    void on_checkBox_6_clicked();
+    void on_radioButton_adresseClient_clicked();
 
-    void on_checkBox_3_clicked();
+    void on_radioButton_CFtype_clicked();
+
+    void on_radioButton_CFnbpnt_clicked();
+
+    void on_pushButton_chercherClient_clicked();
 
 private:
     Ui::MainWindow *ui;

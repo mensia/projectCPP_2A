@@ -35,6 +35,7 @@ void trouver_client(int n );
 void modifier_client ( );
 int generation_id();
 QSqlQueryModel* trier_client(QString n );
+QSqlQueryModel* rechercheClient (QString);
 
 private:
     int id , telephone, num_CB, CF  ;

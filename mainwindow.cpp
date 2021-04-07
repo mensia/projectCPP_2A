@@ -110,7 +110,10 @@ void MainWindow::on_pushButton_supprimerClient_clicked()
 
 void MainWindow::on_pushButton_modifierClient_clicked()
 {
+
     // aller au tab modifier
+    ui->tabWidget->setCurrentIndex(3);
+
     client c ;     carte_fidelite CF ;
     c.setID(ui->lineEdit_ID_client_supp_mod->text().toInt());
     CF.setID_CF(c.getID());
@@ -167,33 +170,42 @@ void MainWindow::on_pushButton_modifier_client_clicked()
         ui->tableau_CF->setModel(CF.afficher_CF());
 }
 
-void MainWindow::on_checkBox_clicked()
+
+
+void MainWindow::on_radioButton_nomClient_clicked()
 {
     client c ;
     ui->tableau_client->setModel(c.trier_client("NOM"));
 
 }
 
-void MainWindow::on_checkBox_2_clicked()
+void MainWindow::on_radioButton_prenomClient_clicked()
 {
     client c ;
     ui->tableau_client->setModel(c.trier_client("PRENOM"));
 }
 
-void MainWindow::on_checkBox_4_clicked()
+void MainWindow::on_radioButton_adresseClient_clicked()
 {
-    carte_fidelite CF ;
-    ui->tableau_CF->setModel( CF.trier_CF("NBR_PNTS"));
+    client c ;
+    ui->tableau_client->setModel(c.trier_client("ASRESSE"));
 }
 
-void MainWindow::on_checkBox_6_clicked()
+void MainWindow::on_radioButton_CFtype_clicked()
 {
     carte_fidelite CF ;
     ui->tableau_CF->setModel( CF.trier_CF("TYPE"));
 }
 
-void MainWindow::on_checkBox_3_clicked()
+void MainWindow::on_radioButton_CFnbpnt_clicked()
+{
+    carte_fidelite CF ;
+    ui->tableau_CF->setModel( CF.trier_CF("NBR_PNTS"));
+}
+
+void MainWindow::on_pushButton_chercherClient_clicked()
 {
     client c ;
-    ui->tableau_client->setModel(c.trier_client("ASRESSE"));
+    QString A =ui->lineEdit_rechercheClient->text();   ;
+        ui->tableau_client->setModel(c.rechercheClient(A));
 }

@@ -197,3 +197,20 @@ QSqlQueryModel* client::trier_client(QString n )
     return model ;
 }
 
+QSqlQueryModel *client::rechercheClient(QString n )
+ {
+     QSqlQueryModel * model= new QSqlQueryModel();
+     model->setQuery("select * from client where nom LIKE '"+n+"%'");
+
+
+     model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+     model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+     model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+     model->setHeaderData(3, Qt::Horizontal, QObject::tr("adresse"));
+     model->setHeaderData(4, Qt::Horizontal, QObject::tr("mail"));
+     model->setHeaderData(5, Qt::Horizontal, QObject::tr("telephone"));
+     model->setHeaderData(6, Qt::Horizontal, QObject::tr("num_CB"));
+     model->setHeaderData(7, Qt::Horizontal, QObject::tr("CF"));
+
+ return model;
+}
