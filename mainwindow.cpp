@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 ui->tableau_client->setModel(C.afficher_clients());
 ui->tableau_CF->setModel(CF.afficher_CF());
+CF.goldenCarte();
 
 
 }
