@@ -173,6 +173,7 @@ void MainWindow::on_pushButton_modifier_client_clicked()
 
 
 
+
 void MainWindow::on_radioButton_nomClient_clicked()
 {
     client c ;

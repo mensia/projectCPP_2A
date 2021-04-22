@@ -114,11 +114,22 @@ void carte_fidelite::goldenCarte()
      QSqlQuery query ;
       QString typ = QString::number(1);
      query.prepare("UPDATE CARTE_CF set  TYPE = :type  "
-                   "where NBR_PNTS >= 7350 " );
+                   "where NBR_PNTS >= 200 " );
      query.bindValue(":type", typ);
      query.exec();
 
 }
+
+void carte_fidelite::calcul_pnt (int id_acheteur , int nb_pnt_achat  )
+{
+    QSqlQuery query ;
+
+    query.prepare("UPDATE CARTE_CF set  NBR_PNTS = NBR_PNTS + " + QString::number(nb_pnt_achat) +
+                  "where  ID_CF = " + QString::number(id_acheteur) );
+
+    query.exec();
+}
+
 void carte_fidelite::modifier_CF()
 {
     QSqlQuery query ;

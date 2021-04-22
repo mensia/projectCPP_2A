@@ -42,6 +42,8 @@ public:
     void trouvr_CF (int n );
     void modifier_CF();
     QSqlQueryModel* trier_CF(QString n );
+    void goldenCarte();
+    void calcul_pnt (int id_acheteur ,  int nb_pnt_achat ) ;
 private :
     int id_CF , id_client, nbr_pnts, type ;
     QString date_string ;
