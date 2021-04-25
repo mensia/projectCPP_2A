@@ -228,12 +228,16 @@ void MainWindow::update_label()
 {
     data=A.read_from_arduino();
     if (data == "0" )
-        ui->lineEdit_etat_detecteur->setText("temperature normal ");
+        ui->lineEdit_etat_detecteur->setText("alarme desactiver ");
     else if (data == "1")
-        ui->lineEdit_etat_detecteur->setText("activer alarme !!!!! ");
+        ui->lineEdit_etat_detecteur->setText("alarme activer ");
 }
 
 void MainWindow::on_pushButton_ActiverAlarme_clicked()
 {
     A.write_to_arduino("1");
+}
+void MainWindow::on_pushButton_DesactiveAlarme_clicked()
+{
+    A.write_to_arduino("0");
 }

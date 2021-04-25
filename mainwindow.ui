@@ -1897,8 +1897,8 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>100</width>
-          <height>30</height>
+          <width>98</width>
+          <height>28</height>
          </rect>
         </property>
         <attribute name="label">
@@ -2252,6 +2252,19 @@ p, li { white-space: pre-wrap; }
       </property>
       <property name="text">
        <string>activer alarme </string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_DesactiveAlarme">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>330</y>
+        <width>191</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>desactiver alarme </string>
       </property>
      </widget>
     </widget>

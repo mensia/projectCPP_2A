@@ -49,6 +49,9 @@ private slots:
 
     void on_pushButton_ActiverAlarme_clicked();
 
+    void on_pushButton_DesactiveAlarme_clicked();
+
+
 private:
     Ui::MainWindow *ui;
     client C ;
