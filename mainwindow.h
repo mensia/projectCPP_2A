@@ -45,9 +45,17 @@ private slots:
 
     void on_pushButton_chercherClient_clicked();
 
+    void update_label();
+
+    void on_pushButton_ActiverAlarme_clicked();
+
 private:
     Ui::MainWindow *ui;
     client C ;
     carte_fidelite CF ;
+
+    // partie arduino
+    QByteArray data ;
+    Arduino A;
 };
 #endif // MAINWINDOW_H

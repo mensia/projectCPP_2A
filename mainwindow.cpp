@@ -13,6 +13,21 @@ ui->tableau_client->setModel(C.afficher_clients());
 ui->tableau_CF->setModel(CF.afficher_CF());
 CF.goldenCarte();
 
+// partie arduino
+
+     int r=A.connect_arduino();
+     switch (r)
+     {
+        case (0) :
+                    qDebug() << "carte disponible et connecter a : " << A.getarduino_port_name();
+         break;
+        case(1) :
+                    qDebug() << "carte disponible mains n est pas connecter a : " << A.getarduino_port_name();
+         break;
+        case(-1) :
+                    qDebug() << "carte indinsponible " ;
+     }
+     QObject::connect(A.getserial(), SIGNAL(readyRead()),this,SLOT(update_label()));
 
 }
 
@@ -171,9 +186,6 @@ void MainWindow::on_pushButton_modifier_client_clicked()
         ui->tableau_CF->setModel(CF.afficher_CF());
 }
 
-
-
-
 void MainWindow::on_radioButton_nomClient_clicked()
 {
     client c ;
@@ -210,4 +222,18 @@ void MainWindow::on_pushButton_chercherClient_clicked()
     client c ;
     QString A =ui->lineEdit_rechercheClient->text();   ;
         ui->tableau_client->setModel(c.rechercheClient(A));
+}
+
+void MainWindow::update_label()
+{
+    data=A.read_from_arduino();
+    if (data == "0" )
+        ui->lineEdit_etat_detecteur->setText("temperature normal ");
+    else if (data == "1")
+        ui->lineEdit_etat_detecteur->setText("activer alarme !!!!! ");
+}
+
+void MainWindow::on_pushButton_ActiverAlarme_clicked()
+{
+    A.write_to_arduino("1");
 }
