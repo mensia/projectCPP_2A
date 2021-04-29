@@ -1,5 +1,6 @@
 #include "client.h"
 
+     // using namespace
 client::client()
 {
 id=0;
@@ -82,6 +83,8 @@ QSqlQueryModel* client::afficher_clients()
  model->setHeaderData(6, Qt::Horizontal, QObject::tr("num_CB"));
  model->setHeaderData(7, Qt::Horizontal, QObject::tr("CF"));
 
+ // model->setData(model->index(1, 0), QBrush(Qt.red), QtCore->Qt.BackgroundRole) ;
+    //     model->setData(model->index(1, 0), QtGui.QBrush(QtCore.Qt.red), QtCore.Qt.BackgroundRole)
 
 
  return model ;

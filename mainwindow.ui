@@ -469,7 +469,7 @@
      <number>-1</number>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tabWidgetPage_ajout">
      <attribute name="title">
@@ -1049,10 +1049,10 @@
       <widget class="QPushButton" name="pushButton_ajouter_client">
        <property name="geometry">
         <rect>
-         <x>390</x>
-         <y>30</y>
-         <width>75</width>
-         <height>23</height>
+         <x>364</x>
+         <y>22</y>
+         <width>111</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -1062,7 +1062,7 @@
       <widget class="QPushButton" name="pushButton_7">
        <property name="geometry">
         <rect>
-         <x>300</x>
+         <x>260</x>
          <y>30</y>
          <width>75</width>
          <height>23</height>
@@ -1767,8 +1767,8 @@ p, li { white-space: pre-wrap; }
        <rect>
         <x>540</x>
         <y>30</y>
-        <width>75</width>
-        <height>23</height>
+        <width>91</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
@@ -1800,10 +1800,10 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_modifierClient">
        <property name="geometry">
         <rect>
-         <x>350</x>
-         <y>40</y>
-         <width>91</width>
-         <height>41</height>
+         <x>340</x>
+         <y>30</y>
+         <width>101</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="text">
@@ -1814,9 +1814,9 @@ p, li { white-space: pre-wrap; }
        <property name="geometry">
         <rect>
          <x>450</x>
-         <y>40</y>
+         <y>30</y>
          <width>91</width>
-         <height>41</height>
+         <height>51</height>
         </rect>
        </property>
        <property name="text">
@@ -1857,10 +1857,10 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_modifier_client">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>60</y>
-         <width>75</width>
-         <height>23</height>
+         <x>194</x>
+         <y>52</y>
+         <width>91</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
@@ -1870,10 +1870,10 @@ p, li { white-space: pre-wrap; }
       <widget class="QPushButton" name="pushButton_11">
        <property name="geometry">
         <rect>
-         <x>390</x>
-         <y>60</y>
-         <width>75</width>
-         <height>23</height>
+         <x>364</x>
+         <y>52</y>
+         <width>101</width>
+         <height>31</height>
         </rect>
        </property>
        <property name="text">
@@ -1897,8 +1897,8 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>98</width>
-          <height>28</height>
+          <width>100</width>
+          <height>30</height>
          </rect>
         </property>
         <attribute name="label">

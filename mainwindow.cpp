@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "INCLUD.h"
+#include <QFile>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -28,6 +30,7 @@ CF.goldenCarte();
                     qDebug() << "carte indinsponible " ;
      }
      QObject::connect(A.getserial(), SIGNAL(readyRead()),this,SLOT(update_label()));
+
 
 }
 

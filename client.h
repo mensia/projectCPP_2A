@@ -2,6 +2,9 @@
 #define CLIENT_H
 
 #include "INCLUD.h"
+#include<QtCore>
+#include<QtGui>
+
 
 
 class client

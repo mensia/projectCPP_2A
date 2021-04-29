@@ -7,9 +7,17 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 
+    // parti deseign
+    QFile File("C://Users//Hana Mansia//Desktop//C++//gestion_client//Toolery.qss");
+            File.open(QFile::ReadOnly);
+            QString StyleSheet =QLatin1String(File.readAll());
+            //setup stylesheet
+            a.setStyleSheet(StyleSheet);
         connexion c;
         bool test=c.creatconnexion();
         MainWindow w;
+
+        // parti conex
 
         if(test)
         {w.show();
